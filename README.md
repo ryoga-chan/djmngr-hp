@@ -20,9 +20,7 @@ bin/server  # middleman server ...
 bin/build   # middleman build
 
 # push new version to github pages
-cd build
-git add -A .
-git push
+bin/publish
 ~~~
 
 # create `gh-pages` [empty branch on git](https://stackoverflow.com/questions/13969050/creating-a-new-empty-branch-for-a-new-project/13969482#13969482)

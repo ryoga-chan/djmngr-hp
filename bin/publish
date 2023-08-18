@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+cd build \
+  && git add -A . \
+  && git commit -m "version `date -u +'%F_%T'`" \
+  && git push
