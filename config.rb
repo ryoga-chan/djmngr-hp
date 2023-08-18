@@ -5,6 +5,9 @@ activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 
+# https://stackoverflow.com/questions/27680342/how-to-deploy-a-middleman-site-to-github-user-page/27687486#27687486
+set :relative_links, true
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
@@ -41,6 +44,7 @@ page '/*.txt' , layout: false
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
 configure :build do
+  activate :relative_assets
   activate :minify_css
   activate :minify_javascript, compressor: Terser.new # https://github.com/middleman/middleman/issues/2530
   activate :asset_hash
