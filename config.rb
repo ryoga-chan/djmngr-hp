@@ -9,9 +9,9 @@ end
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
-page '/*.xml', layout: false
+page '/*.xml' , layout: false
 page '/*.json', layout: false
-page '/*.txt', layout: false
+page '/*.txt' , layout: false
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
@@ -40,7 +40,8 @@ page '/*.txt', layout: false
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
-# configure :build do
-#   activate :minify_css
-#   activate :minify_javascript
-# end
+configure :build do
+  activate :minify_css
+  activate :minify_javascript, compressor: Terser.new # https://github.com/middleman/middleman/issues/2530
+  activate :asset_hash
+end
