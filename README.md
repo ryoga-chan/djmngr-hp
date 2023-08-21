@@ -1,4 +1,4 @@
-# DjMngr home page repository
+# Doujinshi manager documentation
 
 This is the home page of [djmngr](https://github.com/ryoga-chan/djmngr-hp) application.
 
