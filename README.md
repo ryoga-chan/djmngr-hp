@@ -27,13 +27,6 @@ bin/publish
 
 [configure](https://stackoverflow.com/questions/27680342/how-to-deploy-a-middleman-site-to-github-user-page/27687486#27687486) middleman, add in `config.rb`:
 
-~~~ruby
-set :relative_links, true
-configure :build do
-  activate :relative_assets
-end
-~~~
-
 ~~~shell
 # disable github Jekyll magic
 touch source/.nojekyll
