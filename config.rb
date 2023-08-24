@@ -6,7 +6,7 @@ activate :autoprefixer do |prefix|
 end
 
 # https://stackoverflow.com/questions/27680342/how-to-deploy-a-middleman-site-to-github-user-page/27687486#27687486
-set :relative_links, true
+#set :relative_links, true
 
 # Layouts
 # https://middlemanapp.com/basics/layouts/
@@ -34,17 +34,20 @@ page '/*.txt' , layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+helpers do
+  def image_url(path) = image_tag(path).sub(/.+src="([^"]+)".+/, '\1')
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
+configure :development do
+  set :http_prefix, "/"
+end
+
 configure :build do
-  activate :relative_assets
+  set :http_prefix, "/djmngr-hp/"
+  #activate :relative_assets
   activate :minify_css
   activate :minify_javascript, compressor: Terser.new # https://github.com/middleman/middleman/issues/2530
   activate :asset_hash

@@ -1,5 +1,5 @@
 !!!
-%html
+%html.has-navbar-fixed-top
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -8,12 +8,97 @@
     -# Use the title from a page's frontmatter if it has one
     %title= current_page.data.title || "DjMngr | Manage a collection of zipped image sets"
     
-    -# material icons reference: https://pictogrammers.com/library/mdi/
     %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css")
+    
+    -# material icons reference: https://pictogrammers.com/library/mdi/
     %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css")
+
     %script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js")
+    
+    -# https://prismjs.com/#supported-languages
+    %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css")
+    %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css")
+    %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css")
+    %script(src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js")
+    %script(src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js")
+    %script(src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-language/prism-show-language.min.js")
+    %script(src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js")
+    %script(src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js")
+    %script(src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js")
     
     = stylesheet_link_tag    "site"
     = javascript_include_tag "site"
-  %body
-    = yield
+  
+  %body.line-numbers
+    %nav.navbar.is-fixed-top.is-light.has-shadow{role: "navigation"}
+      .navbar-brand
+        = link_to 'index.html', title: 'home page', class: 'navbar-item' do
+          = image_tag 'books.png', style: "border-radius: 0.5rem", class: 'app-logo'
+        %a.navbar-burger.no-spinner{:role => "button", :'data-target' => "appNavbar",
+          :onclick => %Q|jQuery(this).add('#appNavbar').toggleClass('is-active') | }
+          %span
+          %span
+          %span
+
+      #appNavbar.navbar-menu
+        .navbar-start
+          %span.navbar-item
+            = link_to 'index.html' do
+              %span.icon-text
+                %span.icon
+                  %i.mdi.mdi-home
+                %span Info
+          
+          %span.navbar-item
+            = link_to 'install.html' do
+              %span.icon-text
+                %span.icon
+                  %i.mdi.mdi-monitor-arrow-down-variant
+                %span Install
+          
+          %span.navbar-item.has-dropdown.is-hoverable{onclick: "jQuery(this).toggleClass('is-active')"}
+            %a.navbar-link
+              %span.icon-text
+                %span.icon
+                  %i.mdi.mdi-book-open-page-variant-outline
+                %span Docs
+            .navbar-dropdown
+              = link_to 'process.html', class: 'navbar-item' do
+                %span.icon
+                  %i.mdi.mdi-cog-outline
+                %span Process
+              
+              = link_to 'metadata.html', class: 'navbar-item' do
+                %span.icon
+                  %i.mdi.mdi-folder-information-outline
+                %span Metadata
+              
+              = link_to 'browse.html', class: 'navbar-item' do
+                %span.icon
+                  %i.mdi.mdi-database-search-outline
+                %span Browse
+              
+              = link_to 'show.html', class: 'navbar-item' do
+                %span.icon
+                  %i.mdi.mdi-card-account-details-outline
+                %span Detail
+  
+              = link_to 'shortcuts.html', class: 'navbar-item' do
+                %span.icon
+                  %i.mdi.mdi-keyboard-outline
+                %span Shortcuts
+  
+        .navbar-end
+          .navbar-item
+            .buttons
+              = link_to('https://github.com/ryoga-chan/djmngr', class: 'button is-info is-outlined', target: :_blank) do
+                %span.icon
+                  %i.mdi.mdi-github
+                %span GitHub
+              = link_to('https://hub.docker.com/r/ryogachan/djmngr', class: 'button is-info is-outlined', target: :_blank) do
+                %span.icon
+                  %i.mdi.mdi-docker
+                %span Docker
+
+    %section.section.main-content.pt-4
+      = yield

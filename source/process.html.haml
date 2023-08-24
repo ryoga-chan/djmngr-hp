@@ -1,0 +1,299 @@
+.title.is-3 Process section
+
+.block In this section you can refine the contents of the initial ZIP file and add its metadata.
+
+.title.is-4 Single file processing
+
+.columns
+  .column
+    .box.content
+      %ol
+        %li
+          Click on 
+          %em Menu > Process
+          to see the index page.
+        %li
+          Click
+          %em refresh
+          button to scan
+          %em to-sort
+          folder for ZIP files and build a list.
+        %li
+          Click
+          %em preview
+          button to generate a preview collage image for the files present
+          in the first page.
+        %li
+          Click a
+          %em file name
+          to start processing that file.
+  .column.is-6
+    = link_to image_url('process-01-index.png') do
+      %figure.image
+        = image_tag 'process-01-index.png'
+
+.columns
+  .column.is-6
+    = link_to image_url('process-02-preview.png') do
+      %figure.image
+        = image_tag 'process-02-preview.png'
+  .column
+    .box
+      This is the index with preview images generated (on mobile a vertical image
+      will be shown).
+      
+      .content
+        %ul
+          %li
+            Click the 
+            %strong bin
+            to delete the ZIP file and remove it from list.
+          %li
+            With the
+            %strong actions
+            buttons you can: read, random preview, compare, read in external app,
+            open filemanager.
+          %li
+            Click a
+            %strong file name
+            to start processing that file.
+          %li
+            Click on
+            %strong do later
+            button to move the ZIP file in the
+            %em zz_later
+            subfolder (it will be at the end of the list).
+
+.title.is-4 Batch file processing
+
+.block
+  This mode prepares or completely process each selected file copying the metadata
+  from another already processed file.
+
+.columns
+  .column
+    .box.content
+      %ol
+        %li
+          Click on 
+          %em batch
+          button to switch to
+          %em batch select mode.
+        %li
+          Select a group of ZIP files to be processed.
+        %li
+          Click
+          %em prepare
+          button to start analizing each ZIP file.
+          Beware of the total size bacause you will need that for the subsequent
+          decompression.
+  .column.is-6
+    = link_to image_url('process-batch-01.png') do
+      %figure.image
+        = image_tag 'process-batch-01.png'
+
+.columns
+  .column.is-6
+    = link_to image_url('process-batch-02.png') do
+      %figure.image
+        = image_tag 'process-batch-02.png'
+  .column
+    .box.content
+      %ol
+        %li
+          Insert the
+          %em ID
+          of an already processed file.
+        %li
+          Or click the
+          %em copy
+          button to insert the last file ID processed. You can view the last
+          processed file by clicking the
+          %em eye
+          button.
+        %li
+          Choose to
+          %em prepare
+          or
+          %em process
+          each file.
+          %br
+          %strong Prepare:
+          unzips the file and copies metadata for later modification and finalization.
+          Click
+          %em Menu > Process
+          to see items currently in process.
+          %br
+          %strong Process:
+          unzips the file, copies metadata, and runs the finalization (store result
+          in collection).
+          You can delete the original file later.
+      
+      .block.content
+        With all the informations on screen you can choose the action (prepare/process)
+        before starting the batch job, in addition you can:
+        %ul
+          %li decide common settings to apply to all files;
+          %li change the file name to be used later;
+          %li remove a ZIP file from the list (does not delete the original file);
+          %li check file names within the ZIP file;
+          %li
+            in case you select the
+            %strong Process
+            action, you can choose to keep the landscape cover cropped as is, if
+            not the finalization for that file will fail requiring later manual
+            action.
+        
+.title.is-4 Individual file processing
+
+.block
+  In this section you inspect and manipulate ZIP file contents, assign metadata and
+  destination folders.
+  The process consists in various steps identified by the tabs on top.
+
+.columns
+  .column
+    .box
+      In this tab you look for duplicates and decide what to do: delete this file,
+      delete the file in collection, visually compare them, ...
+      .content
+        %ol
+          %li
+            Click on 
+            %em Delete WIP
+            button to delete this working folder.
+          %li
+            Click on 
+            %em Delete ALL
+            button to delete this working folder
+            %strong and
+            the source ZIP file.
+          %li
+            Use this input field to find duplicates by title.
+          %li
+            This line show the status of the cover matching job.
+            You can restart it in case of need.
+  .column.is-6
+    = link_to image_url('process-edit-01-dupes.png') do
+      %figure.image
+        = image_tag 'process-edit-01-dupes.png'
+
+.columns
+  .column
+    .box
+      In this tab you can remove or rename the unzipped files.
+      .content
+        %ol
+          %li
+            With this toolbar you can mass enumerate/rename all files
+          %li
+            Click on 
+            %em Edit
+            button to selectively rename a file.
+            A file is renamed when the input field loses its focus.
+  .column.is-6
+    = link_to image_url('process-edit-02-names.png') do
+      %figure.image
+        = image_tag 'process-edit-02-names.png'
+
+.columns
+  .column
+    .box
+      In this tab you can visually remove, rename, or zoom the unzipped images.
+      The default select/zoom mechanism can be selected in
+      %em Tools > Settings > process_img_sel.
+      .content
+        %ol
+          %li
+            Click on the
+            %em top half
+            of the image to toggle its selection.
+          %li
+            Click on the
+            %em lower half
+            of the image to zoom it.
+  .column.is-6
+    = link_to image_url('process-edit-03-pics.png') do
+      %figure.image
+        = image_tag 'process-edit-03-pics.png'
+
+.columns
+  .column
+    .box
+      In this tab you can set the main folder destination of the ZIP file
+      and associate it to authors and circles (groups).
+      This follows the
+      %em disk folders organization
+      as described in the
+      = link_to 'Info', 'index.html'
+      page.
+      .content
+        %ol
+          %li
+            Select the
+            %em category
+            of this set (main folder).
+          %li
+            Input the
+            %em name/series name
+            (secondary folder).
+          %li
+            Click on a
+            %em name
+            to search for it. This is auto pupolated from the original ZIP file name
+            if it is named as:
+            %ul
+              %li
+                %strong [circle X, circle Y, ... (author A, author B, ...)] title.zip
+              %li
+                %strong magazine title YYYY-MM.zip
+              %li
+                %strong artbook title.zip
+          %li
+            Input you custom search terms.
+          %li
+            If the term does not exist, you can click on the
+            %em plus
+            button to create an Author/Circle from it.
+          %li
+            Click on the
+            %em plus/minus
+            symbols to set/remove the association to that author/circle.
+          %li
+            In the
+            %em Associations
+            column you can choose the principal author/circle, this merely sets
+            the destination folder in (2).
+  .column.is-6
+    = link_to image_url('process-edit-04-ident.png') do
+      %figure.image
+        = image_tag 'process-edit-04-ident.png'
+
+.columns
+  .column
+    .box
+      In this tab you can set metadata, score, eventual subfolder, and final ZIP file name.
+      %br
+      In the last metadata row you can see what will be the complete path of the
+      file in the collection.
+      %br
+      On the lower buttons toolbar you can update the metadata, restart a cover
+      match search, and begin the finalization process (apply previously decided
+      actions and store in collection).
+  .column.is-6
+    = link_to image_url('process-edit-05-move-01.png') do
+      %figure.image
+        = image_tag 'process-edit-05-move-01.png'
+
+.columns
+  .column
+    .box
+      The first image of the set is used as a portrait cover, in case you have
+      a landscape image then in this final tab you can decide the cropping method/level
+      or edit it in an external application then click
+      %em refresh thumb
+      button.
+  .column.is-6
+    = link_to image_url('process-edit-05-move-02.png') do
+      %figure.image
+        = image_tag 'process-edit-05-move-02.png'

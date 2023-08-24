@@ -1,10 +1,247 @@
-.columns
-  .column.is-4.is-offset-4.has-text-centered
-    %span.icon
-      %i.mdi.mdi-home
-    TODO
+.box
+  .title.is-3 DjMngr &middot; Doujinshi manager
+  
+  .block
+    This application is made for doujin/manga/comics/novel readers and photographers to
+    %strong manage a collection of zipped image sets
+    , easying their work with sorting files, assigning metedata, searching, and
+    reading online from any device.
+  
+  %hr
+  
+  .block
+    As time passes by we accumulate more and more images,
+    %em saving them individually
+    on disk takes a lot of space, instead
+    %em zipping each set/folder
+    helps freeing a big chunk of disk space.
+    %br
+    Technically speaking we do not save much space by compressing images but instead
+    by reducing unused space in disk blocks: each file does waste some space, so
+    instead of
+    %em a big number
+    of files wasting precious KiB we only have a
+    %em single one.
+    This leads to a 10~20% of freed space,
+    %a(href="https://dictionary.cambridge.org/dictionary/english/ymmv" target="_blank") YMMV
+    \.
+  .block
+    In doing so arises the need of an application to easily view these compressed
+    sets of images, in addition to DjMngr there are a miriad of options out there:
+    
+    %a(href="https://sourceforge.net/p/mcomix/wiki/Home/" target="_blank") MComix
+    ,
+    %a(href="https://www.faststone.org" target="_blank") FastStone MaxView
+    ,
+    %a(href="https://www.acdsee.com/en/products/acdsee-free/" target="_blank") ACDsee
+    ,
+    and
+    %a(href="https://duckduckgo.com/?q=zip+image+viewer" target="_blank") more
+    \; but
+    %strong DjMngr
+    %em has more to offer than a simple viewer!
 
-.has-text-centered
-  Documentation for the
-  %a(href="https://github.com/ryoga-chan/djmngr") djmngr
-  application.
+.columns
+  .column.is-6
+    .box.content
+      %ul
+        %li
+          Curated
+          %strong processing
+          of image sets
+        %li
+          Read or preview contents
+          %strong from any device
+        %li Browse by metadata and search by title
+        %li
+          Find duplicates by title or
+          %strong cover similarity
+        %li
+          %strong Compare
+          multiple sets side by side
+        %li
+          Generate
+          %strong EPUB
+          for your device
+        %li
+          Create
+          %em shelves,
+          assign
+          %em scores,
+          set
+          %em favorites,
+          \...
+  .column
+    = link_to image_url('home.png') do
+      %figure.image.mt-5
+        = image_tag 'home.png'
+
+.columns
+  .column
+    = link_to image_url('browse-01-authors.png') do
+      %figure.image.mt-5
+        = image_tag 'browse-01-authors.png'
+  .column.is-6
+    .box
+      .title.is-3 Collection workflow
+
+      .icon-text
+        %span.icon
+          %i.mdi.mdi-numeric-1-circle
+        %span
+          Put ZIP files in
+          %em to-sort
+          folder
+      .icon-text
+        %span.icon
+          %i.mdi.mdi-numeric-2-circle
+        %span
+          %em Process
+          each ZIP file (individually or in batches)
+      .icon-text
+        %span.icon
+          %i.mdi.mdi-numeric-3-circle
+        %span
+          Add
+          %em metadata
+          beforehand or while processing
+      .icon-text
+        %span.icon
+          %i.mdi.mdi-numeric-4-circle
+        %span
+          Explore your collection by author/circle/category/...
+      .icon-text
+        %span.icon
+          %i.mdi.mdi-numeric-5-circle
+        %span
+          View details of an item and take actions (read, edit, ...)
+
+.title.is-3.mt-4 On disk folders organization
+
+.columns
+  .column.is-6
+    .box
+      These three folders can be customized in the
+      %em Settings
+      menu:
+
+      .columns.mt-2
+        .column.is-2
+          .icon-text
+            %span.icon.is-medium
+              %i.mdi.mdi2x.mdi-folder-arrow-left-right-outline
+            %span
+              %strong to-sort
+        .column
+          Contains ZIP files to be processed in order to add them to the collection.
+      .columns
+        .column.is-2
+          .icon-text
+            %span.icon.is-medium
+              %i.mdi.mdi2x.mdi-folder-cog-outline
+            %span
+              %strong sorting
+        .column
+          Contains ZIP files being processed. Thery are unzipped here for
+          manipulation before being rezipped into the collection.
+      .columns
+        .column.is-2
+          .icon-text
+            %span.icon.is-medium
+              %i.mdi.mdi2x.mdi-folder-check-outline
+            %span
+              %strong sorted
+        .column
+          Contains the processed ZIP files. An embedded metadata file is
+          added containing both initial and processing data.
+  
+  .column
+    .box
+      .mb-2
+        ZIP files in
+        %strong sorted
+        folder are arranged diffently by
+        %span.tag.is-dark category
+        as follows:
+        
+        .tags.has-addons.no-mb.mt-2
+          %span.tag.is-dark /authors/
+          %span.tag.is-info &lt;name&gt;/
+          %span.tag.is-link [subfolder/]
+          %span.tag file.zip
+        .descr
+          Author
+          %em name,
+          optional
+          %em subfolder,
+          %em file name
+        
+        .tags.has-addons.no-mb.mt-2
+          %span.tag.is-dark /circles/
+          %span.tag.is-info &lt;name&gt;/
+          %span.tag.is-link [subfolder/]
+          %span.tag file.zip
+        .descr
+          Circle (group)
+          %em name,
+          optional
+          %em subfolder,
+          %em file name
+      
+        .tags.has-addons.no-mb.mt-2
+          %span.tag.is-dark /magz/
+          %span.tag.is-info &lt;name&gt;/
+          %span.tag.is-link [subfolder/]
+          %span.tag file.zip
+        .descr
+          Magazine
+          %em name,
+          optional
+          %em subfolder,
+          %em file name
+        
+        .tags.has-addons.no-mb.mt-2
+          %span.tag.is-dark /artbooks/
+          %span.tag.is-info [series name/]
+          %span.tag.is-link [subfolder/]
+          %span.tag file.zip
+        .descr
+          Optional
+          %em series name,
+          optional
+          %em subfolder,
+          %em file name
+
+.title.is-3.mt-4 Technology
+
+This software is a web application written in
+%a(href="https://www.ruby-lang.org/en/" target="_blank") Ruby
+with the
+%a(href="https://rubyonrails.org" target="_blank") Ruby on Rails
+framework at server side,
+%a(href="https://bulma.io" target="_blank") Bulma
+and
+%a(href="https://jquery.com" target="_blank") jQuery
+at client side.
+%br
+Application data is stored in the famous
+%em one-file-database
+%a(href="https://www.sqlite.org" target="_blank") SQLite
+widely used in many applications.
+
+-#= image_tag 'browse-01-authors.png'
+-#= image_tag 'doujin-show.png'
+-#= image_tag 'help.png'
+-#= image_tag 'home.png'
+-#= image_tag 'metadata.png'
+-#= image_tag 'process-01-index.png'
+-#= image_tag 'process-02-preview.png'
+-#= image_tag 'process-batch-01.png'
+-#= image_tag 'process-batch-02.png'
+-#= image_tag 'process-edit-01-dupes.png'
+-#= image_tag 'process-edit-02-names-01.png'
+-#= image_tag 'process-edit-02-names-02.png'
+-#= image_tag 'process-edit-03-pics.png'
+-#= image_tag 'process-edit-04-ident.png'
+-#= image_tag 'process-edit-05-move-01.png'
+-#= image_tag 'process-edit-05-move-02.png'

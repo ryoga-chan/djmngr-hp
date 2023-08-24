@@ -1,0 +1,37 @@
+.title.is-3 Browse section
+
+.block
+  Here you can browse your collection.
+
+.columns
+  .column
+    .box.content
+      %ol
+        %li You can apply filters on metadata.
+        %li Using the tabs you can select the category.
+        %li
+          Click on the
+          %em show tumbs/table
+          button to toggle between tabular/thumbnails view.
+  .column.is-6
+    = link_to image_url('browse-01.png') do
+      %figure.image
+        = image_tag 'browse-01.png'
+
+.columns
+  .column.is-6
+    = link_to image_url('browse-02.png') do
+      %figure.image.mb-2
+        = image_tag 'browse-02.png'
+    = link_to image_url('browse-03.png') do
+      %figure.image
+        = image_tag 'browse-03.png'
+  .column
+    .box
+      Normally optional subfolders are not displayed in the left panel.
+      
+      .content
+        %ul
+          %li Authors and Circle have the same folder style.
+          %li Artbooks have a root folder, series are displayed directly in the left panel.
+          %li Magazines are grouped by name, subfolders are displayed directly in the left panel.

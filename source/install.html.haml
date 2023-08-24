@@ -1,0 +1,106 @@
+.title.is-3 Install instructions
+
+.notification.is-warning
+  %span.icon
+    %i.mdi.mdi-alert
+  This app is meant to be executed locally within your home network: no extra attention
+  was paid to security regarding external attacks or access management.
+  You can however put it behind
+  %a(href="https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/" target="_blank") basic auth
+  and/or other restrictions via either
+  %a(href="https://nginx.org/en/" target="_blank") nginx
+  or
+  %a( target="_blank"href="https://apache.org/") apache
+  , use
+  %a(href="https://openvpn.net/community-resources/how-to/" target="_blank") your own
+  local
+  %a(href="https://restoreprivacy.com/vpn/" target="_blank") VPN
+  , or a
+  %a(href="https://www.howtogeek.com/168145/how-to-use-ssh-tunneling/" target="_blank") SSH tunnel
+  \.
+
+.notification.is-info
+  %span.icon
+    %i.mdi.mdi-alert-circle-outline
+  You can do a
+  %strong local installation
+  or use a
+  %strong docker image
+  \: they are functionally equals however the
+  %em local installation
+  can run external programs installed in the same system (like a file manager,
+  terminal, image editor, ...) but the
+  %em docker image
+  cannot.
+
+.title.is-4
+  Using
+  %span.is-family-monospace docker
+.pl-5
+  %pre<
+    %code.language-shell
+      :plain
+        # download image
+        docker pull ryogachan/djmngr
+
+        # run image
+        docker run --rm -ti --name trash \
+          -p "3000:3000" \
+          -v /path/to/library:/app/dj-library     \
+          -v /path/to/epub:/app/public/epub       \
+          -v /path/to/thumbs:/app/public/thumbs   \
+          -v /path/to/samples:/app/public/samples \
+          ryogachan/djmngr
+
+.title.is-4
+  Using
+  %span.is-family-monospace docker-compose
+.pl-5
+  %pre<
+    %code.language-shell
+      :plain
+        # download image
+        docker pull ryogachan/djmngr
+
+        # download docker-compose file
+        wget https://github.com/ryoga-chan/djmngr/raw/main/docker/compose.yml
+
+        # edit port/folders in compose.yml, then:
+        docker compose up -d  # start app in background
+        docker compose down   # stop app
+
+.title.is-4 Local installation
+.pl-5
+  %pre<
+    %code.language-shell
+      :plain
+        # install prerequisites
+        apt install libvips-dev libkakasi2-dev libjpeg-dev \
+          libpng-dev webp zip unzip findutils grep coreutils \
+          nodejs imagemagick
+        
+        # install optional tools
+        apt install mcomix thunar graphviz sqlite3 p7zip-full
+        
+        # install ruby 3.2.0 (you can use RBENV, RVM, or system package)
+        curl -sSL https://get.rvm.io | bash -s stable
+        rvm install "3.2.0"
+
+        # clone the repository
+        git clone https://github.com/ryoga-chan/djmngr.git
+        cd djmngr
+
+        # install gems
+        bundle install
+
+        # run database migrations
+        RAILS_ENV=production ./bin/rails db:migrate
+
+        # run standalone server
+        RAILS_SERVE_STATIC_FILES=true ./bin/server p
+
+On the first run wait for assets compilation to finish, then visit
+%a(href="http://localhost:39102/") http://localhost:39102/
+and configure the app in
+%em Menu > Tools > Settings
+\.

@@ -1,0 +1,31 @@
+.title.is-3 Detail section
+
+.block
+  Here you can view/edit ZIP file details and take various actions.
+
+.columns
+  .column
+    .box.content
+      You can:
+      %ol
+        %li favorite this set;
+        %li download EPUB/CBZ/ZIP;
+        %li set a score;
+        %li add to a shelf;
+        %li read online with the browser or in an external application;
+        %li verify file checksum or test ZIP archive;
+        %li add to side by side camparison list;
+        %li recalculate the checksum, reprocess the file, delete file and remove from collection.
+  .column.is-6
+    = link_to image_url('djshow-01.png') do
+      %figure.image
+        = image_tag 'djshow-01.png'
+
+.columns
+  .column.is-6
+    = link_to image_url('djshow-02.png') do
+      %figure.image
+        = image_tag 'djshow-02.png'
+  .column
+    .box.content
+      There is plenty of informations you can enter while editing its metadata.
