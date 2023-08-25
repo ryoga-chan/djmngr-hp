@@ -1,0 +1,53 @@
+.title.is-3 Simpler interface for smaller/low-power devices
+  
+.columns
+  .column.is-6
+    .box
+      A simpler browsing interface with basic HTML and Javascript for old tablets/phones
+      or ereaders is available by clicking the top-right tablet icon or by visiting
+      %a(href="http://localhost:3000/?format=ereader") http://localhost:PORT/?format=ereader
+      (where
+      %em port
+      is 39102 for the local installation and 3000 for docker).
+      %br
+      An on-screen virtual keyboard is also available in case of need by pressing the
+      %em KB
+      button beside a text input field.
+  .column
+    = link_to image_url('home.png') do
+      %figure.image
+        = image_tag 'home.png'
+
+.columns
+  .column.is-4.has-text-centered
+    .mb-2 home page
+    = link_to image_url('ereader-index.png'), class: 'box' do
+      %figure.image
+        = image_tag 'ereader-index.png'
+  .column.is-4.has-text-centered
+    .mb-2 virtual keyboard
+    = link_to image_url('ereader-index-keyb.png'), class: 'box' do
+      %figure.image
+        = image_tag 'ereader-index-keyb.png'
+  .column.is-4.has-text-centered
+    .mb-2 browse category by letter
+    = link_to image_url('ereader-browse-01.png'), class: 'box' do
+      %figure.image
+        = image_tag 'ereader-browse-01.png'
+
+.columns
+  .column.is-4.has-text-centered
+    .mb-2 browse a section
+    = link_to image_url('ereader-browse-02.png'), class: 'box' do
+      %figure.image
+        = image_tag 'ereader-browse-02.png'
+  .column.is-4.has-text-centered
+    .mb-2 item details
+    = link_to image_url('ereader-show.png'), class: 'box' do
+      %figure.image
+        = image_tag 'ereader-show.png'
+  .column.is-4.has-text-centered
+    .mb-2 reading mode with opened menu
+    = link_to image_url('ereader-read.png'), class: 'box' do
+      %figure.image
+        = image_tag 'ereader-read.png'

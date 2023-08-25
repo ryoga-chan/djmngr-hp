@@ -10,7 +10,7 @@
     
     %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css")
     
-    -# material icons reference: https://pictogrammers.com/library/mdi/
+    -# icons: https://pictogrammers.com/library/mdi/
     %link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css")
 
     %script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js")
@@ -63,6 +63,11 @@
                   %i.mdi.mdi-book-open-page-variant-outline
                 %span Docs
             .navbar-dropdown
+              = link_to 'ereader.html', class: 'navbar-item' do
+                %span.icon
+                  %i.mdi.mdi-tablet-cellphone
+                %span Simpler GUI
+              
               = link_to 'process.html', class: 'navbar-item' do
                 %span.icon
                   %i.mdi.mdi-cog-outline
