@@ -23,7 +23,7 @@ bin/build   # middleman build
 bin/publish
 ~~~
 
-# create `gh-pages` [empty branch on git](https://stackoverflow.com/questions/13969050/creating-a-new-empty-branch-for-a-new-project/13969482#13969482)
+# create `gh-pages` [empty branch on git](https://stackoverflow.com/questions/13969050/creating-a-new-empty-branch-for-a-new-project/70701283#70701283https://stackoverflow.com/questions/13969050/creating-a-new-empty-branch-for-a-new-project/70701283#70701283https://stackoverflow.com/questions/13969050/creating-a-new-empty-branch-for-a-new-project/70701283#70701283)
 
 [configure](https://stackoverflow.com/questions/27680342/how-to-deploy-a-middleman-site-to-github-user-page/27687486#27687486) middleman, add in `config.rb`:
 
@@ -34,7 +34,7 @@ touch source/.nojekyll
 # copy repo config and create empty branch
 cp -ra .git build/
 cd build
-git checkout --orphan gh-pages
-git rm --cached -r .
-git push
+git switch --orphan gh-pages
+git commit --allow-empty -m "initial commit"
+git push -u gh-pages
 ~~~

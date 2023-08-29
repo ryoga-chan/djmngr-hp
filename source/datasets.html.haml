@@ -1,0 +1,57 @@
+.title.is-3 Ready-made importable datasets
+
+Create an
+%span.is-family-monospace import
+folder and download a dataset into it then follow instructions based on your preferred
+= link_to 'installation type', 'install.html'
+\.
+
+-#.columns
+-#  .column.is-offset-1.is-10
+.menu.my-3.ml-5
+  %p.menu-label Available datasets:
+  %ul.menu-list
+    %li
+      %a(href="https://github.com/ryoga-chan/djmngr/releases/download/0.27.0/metadata.dat" target="_blank")
+        %span.icon
+          %i.mdi.mdi-download
+        %span doujinshi.org @ 2020-10 / 9.2MiB (~50MiB imported)
+
+.title.is-4.mt-4.mb-2
+  Import file using
+  %span.is-family-monospace docker
+Add to the
+%span.is-family-monospace docker
+command the following parameter:
+.pl-5
+  %pre<
+    %code.language-shell
+      :plain
+        -v /path/to/import_folder:/app/import \
+then start the app and wait about 10~15 minutes for the task to finish.
+
+.title.is-4.mt-4.mb-2
+  Import file using
+  %span.is-family-monospace docker-compose
+In the
+%span.is-family-monospace volumes
+section of
+%span.is-family-monospace compose.yml
+add the following line:
+.pl-5
+  %pre<
+    %code.language-yaml
+      :plain
+        - /path/to/import_folder:/app/import
+then start the app and wait about 10~15 minutes for the task to finish.
+
+.title.is-4.mt-4.mb-2   Import file using the local installation
+Move the
+%span.is-family-monospace import
+folder into the app root directory, then run the command:
+.pl-5
+  %pre<
+    %code.language-shell
+      :plain
+        ./bin/rails djorg:metadata:load RAILS_ENV=production
+wait about 10~15 minutes for the task to finish.
