@@ -46,6 +46,7 @@
         # run image
         docker run --rm -ti --name trash \
           -p "3000:3000" \
+          -v /path/to/db:/app/db                  \
           -v /path/to/library:/app/dj-library     \
           -v /path/to/epub:/app/public/epub       \
           -v /path/to/thumbs:/app/public/thumbs   \
@@ -54,7 +55,8 @@
 
 .title.is-4.mt-4.mb-2
   Using
-  %span.is-family-monospace docker-compose
+  = link_to 'docker-compose', 'https://docs.docker.com/get-started/08_using_compose/',
+    class: 'is-family-monospace', target: '_blank'
 .pl-5
   %pre<
     %code.language-shell
@@ -62,7 +64,7 @@
         # download image
         docker pull ryogachan/djmngr
 
-        # download docker-compose file
+        # download and customize docker-compose file
         wget https://github.com/ryoga-chan/djmngr/raw/main/docker/compose.yml
 
         # edit port/folders in compose.yml, then:
