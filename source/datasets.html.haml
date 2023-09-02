@@ -27,8 +27,8 @@ command the following parameter:
   %pre<
     %code.language-shell
       :plain
-        -v /path/to/import_folder:/app/import \
-then start the app and wait about 10~15 minutes for the task to finish.
+        -v /path/to/import_folder:/app/import
+then start the app and wait some minutes for the task to finish.
 
 .title.is-4.mt-4.mb-2
   Import file using
@@ -43,9 +43,9 @@ add the following line:
     %code.language-yaml
       :plain
         - /path/to/import_folder:/app/import
-then start the app and wait about 10~15 minutes for the task to finish.
+then start the app and wait some minutes for the task to finish.
 
-.title.is-4.mt-4.mb-2   Import file using the local installation
+.title.is-4.mt-4.mb-2 Import file using the local installation
 Move the
 %span.is-family-monospace import
 folder into the app root directory, then run the command:
@@ -54,4 +54,4 @@ folder into the app root directory, then run the command:
     %code.language-shell
       :plain
         ./bin/rails djorg:metadata:load RAILS_ENV=production
-wait about 10~15 minutes for the task to finish.
+wait some minutes for the task to finish.
