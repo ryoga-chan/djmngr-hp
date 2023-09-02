@@ -4,6 +4,9 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width,initial-scale=1,shrink-to-fit=no", :name => "viewport"}/
+
+    %link{rel: 'shortcut icon', href: image_url('books.ico')}
+    %link{rel: 'icon', type: 'image/png', sizes: '400x400', href: image_url('books.png')}
     
     -# Use the title from a page's frontmatter if it has one
     %title= current_page.data.title || "DjMngr | Manage a collection of zipped image sets"
