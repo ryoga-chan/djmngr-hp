@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class='has-navbar-fixed-top'>
+<head>
+<meta charset='utf-8'>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='width=device-width,initial-scale=1,shrink-to-fit=no' name='viewport'>
+<link href='/djmngr-hp/images/books.ico' rel='shortcut icon'>
+<link href='/djmngr-hp/images/books-46f3db8a.png' rel='icon' sizes='400x400' type='image/png'>
+<title>DjMngr | Manage a collection of zipped image sets</title>
+<link href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css' rel='stylesheet'>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css' rel='stylesheet'>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-language/prism-show-language.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js'></script>
+<link href="/djmngr-hp/stylesheets/site-fbc4401d.css" rel="stylesheet" />
+<script src="/djmngr-hp/javascripts/site-6b038d09.js"></script>
+</head>
+<body class='line-numbers'>
+<nav class='navbar is-fixed-top is-light has-shadow' role='navigation'>
+<div class='navbar-brand'>
+<a href="/djmngr-hp/" title="home page" class="navbar-item"><img src="/djmngr-hp/images/books-46f3db8a.png" style="border-radius: 0.5rem" class="app-logo" alt="" />
+</a><a class='navbar-burger no-spinner' data-target='appNavbar' onclick='jQuery(this).add(&#39;#appNavbar&#39;).toggleClass(&#39;is-active&#39;) ' role='button'>
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+<div class='navbar-menu' id='appNavbar'>
+<div class='navbar-start'>
+<span class='navbar-item'>
+<a href="/djmngr-hp/"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-home'></i>
+</span>
+<span>Info</span>
+</span>
+</a></span>
+<span class='navbar-item'>
+<a href="/djmngr-hp/install.html"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-monitor-arrow-down-variant'></i>
+</span>
+<span>Install</span>
+</span>
+</a></span>
+<span class='navbar-item has-dropdown is-hoverable' onclick='jQuery(this).toggleClass(&#39;is-active&#39;)'>
+<a class='navbar-link'>
+<span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-book-open-page-variant-outline'></i>
+</span>
+<span>Docs</span>
+</span>
+</a>
+<div class='navbar-dropdown'>
+<a href="/djmngr-hp/ereader.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-tablet-cellphone'></i>
+</span>
+<span>Simpler GUI</span>
+</a><a href="/djmngr-hp/process.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-cog-outline'></i>
+</span>
+<span>Process</span>
+</a><a href="/djmngr-hp/metadata.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-folder-information-outline'></i>
+</span>
+<span>Metadata</span>
+</a><a href="/djmngr-hp/browse.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-database-search-outline'></i>
+</span>
+<span>Browse</span>
+</a><a href="/djmngr-hp/show.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-card-account-details-outline'></i>
+</span>
+<span>Detail</span>
+</a><a href="/djmngr-hp/shortcuts.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-keyboard-outline'></i>
+</span>
+<span>Shortcuts</span>
+</a><a href="/djmngr-hp/datasets.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-file-download-outline'></i>
+</span>
+<span>Datasets</span>
+</a></div>
+</span>
+</div>
+<div class='navbar-end'>
+<div class='navbar-item'>
+<div class='buttons'>
+<a href="https://github.com/ryoga-chan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-github'></i>
+</span>
+<span>GitHub</span>
+</a><a href="https://hub.docker.com/r/ryogachan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-docker'></i>
+</span>
+<span>Docker</span>
+</a></div>
+</div>
+</div>
+</div>
+</nav>
+<section class='section main-content pt-4'>
+<div class='title is-3'>Ready-made importable datasets</div>
+Create an
+<span class='is-family-monospace'>import</span>
+folder and download a dataset into it then follow instructions based on your preferred
+<a href="/djmngr-hp/install.html">installation type</a>
+.
+<div class='menu my-3 ml-5'>
+<p class='menu-label'>Available datasets:</p>
+<ul class='menu-list'>
+<li>
+<a href='https://github.com/ryoga-chan/djmngr/releases/download/0.27.0/metadata.dat' target='_blank'>
+<span class='icon'>
+<i class='mdi mdi-download'></i>
+</span>
+<span>doujinshi.org @ 2020-10 / 9.2MiB (~50MiB imported)</span>
+</a>
+</li>
+</ul>
+</div>
+<div class='title is-4 mt-4 mb-2'>
+Import file using
+<span class='is-family-monospace'>docker</span>
+</div>
+Add to the
+<span class='is-family-monospace'>docker</span>
+command the following parameter:
+<div class='pl-5'>
+<pre><code class='language-shell'>-v /path/to/import_folder:/app/import</code></pre>
+</div>
+then start the app and wait some minutes for the task to finish.
+<div class='title is-4 mt-4 mb-2'>
+Import file using
+<span class='is-family-monospace'>docker-compose</span>
+</div>
+In the
+<span class='is-family-monospace'>volumes</span>
+section of
+<span class='is-family-monospace'>compose.yml</span>
+add the following line:
+<div class='pl-5'>
+<pre><code class='language-yaml'>- /path/to/import_folder:/app/import</code></pre>
+</div>
+then start the app and wait some minutes for the task to finish.
+<div class='title is-4 mt-4 mb-2'>Import file using the local installation</div>
+Move the
+<span class='is-family-monospace'>import</span>
+folder into the app root directory, then run the command:
+<div class='pl-5'>
+<pre><code class='language-shell'>./bin/rails djorg:metadata:load RAILS_ENV=production</code></pre>
+</div>
+wait some minutes for the task to finish.
+
+</section>
+</body>
+</html>

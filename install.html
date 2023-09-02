@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class='has-navbar-fixed-top'>
+<head>
+<meta charset='utf-8'>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='width=device-width,initial-scale=1,shrink-to-fit=no' name='viewport'>
+<link href='/djmngr-hp/images/books.ico' rel='shortcut icon'>
+<link href='/djmngr-hp/images/books-46f3db8a.png' rel='icon' sizes='400x400' type='image/png'>
+<title>DjMngr | Manage a collection of zipped image sets</title>
+<link href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css' rel='stylesheet'>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css' rel='stylesheet'>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-language/prism-show-language.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js'></script>
+<link href="/djmngr-hp/stylesheets/site-fbc4401d.css" rel="stylesheet" />
+<script src="/djmngr-hp/javascripts/site-6b038d09.js"></script>
+</head>
+<body class='line-numbers'>
+<nav class='navbar is-fixed-top is-light has-shadow' role='navigation'>
+<div class='navbar-brand'>
+<a href="/djmngr-hp/" title="home page" class="navbar-item"><img src="/djmngr-hp/images/books-46f3db8a.png" style="border-radius: 0.5rem" class="app-logo" alt="" />
+</a><a class='navbar-burger no-spinner' data-target='appNavbar' onclick='jQuery(this).add(&#39;#appNavbar&#39;).toggleClass(&#39;is-active&#39;) ' role='button'>
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+<div class='navbar-menu' id='appNavbar'>
+<div class='navbar-start'>
+<span class='navbar-item'>
+<a href="/djmngr-hp/"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-home'></i>
+</span>
+<span>Info</span>
+</span>
+</a></span>
+<span class='navbar-item'>
+<a href="/djmngr-hp/install.html"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-monitor-arrow-down-variant'></i>
+</span>
+<span>Install</span>
+</span>
+</a></span>
+<span class='navbar-item has-dropdown is-hoverable' onclick='jQuery(this).toggleClass(&#39;is-active&#39;)'>
+<a class='navbar-link'>
+<span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-book-open-page-variant-outline'></i>
+</span>
+<span>Docs</span>
+</span>
+</a>
+<div class='navbar-dropdown'>
+<a href="/djmngr-hp/ereader.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-tablet-cellphone'></i>
+</span>
+<span>Simpler GUI</span>
+</a><a href="/djmngr-hp/process.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-cog-outline'></i>
+</span>
+<span>Process</span>
+</a><a href="/djmngr-hp/metadata.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-folder-information-outline'></i>
+</span>
+<span>Metadata</span>
+</a><a href="/djmngr-hp/browse.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-database-search-outline'></i>
+</span>
+<span>Browse</span>
+</a><a href="/djmngr-hp/show.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-card-account-details-outline'></i>
+</span>
+<span>Detail</span>
+</a><a href="/djmngr-hp/shortcuts.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-keyboard-outline'></i>
+</span>
+<span>Shortcuts</span>
+</a><a href="/djmngr-hp/datasets.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-file-download-outline'></i>
+</span>
+<span>Datasets</span>
+</a></div>
+</span>
+</div>
+<div class='navbar-end'>
+<div class='navbar-item'>
+<div class='buttons'>
+<a href="https://github.com/ryoga-chan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-github'></i>
+</span>
+<span>GitHub</span>
+</a><a href="https://hub.docker.com/r/ryogachan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-docker'></i>
+</span>
+<span>Docker</span>
+</a></div>
+</div>
+</div>
+</div>
+</nav>
+<section class='section main-content pt-4'>
+<div class='title is-3'>Install instructions</div>
+<div class='notification is-warning'>
+<div class='columns'>
+<div class='column is-1 has-text-centered'>
+<span class='icon is-large'>
+<i class='mdi mdi-alert mdi-48px'></i>
+</span>
+</div>
+<div class='column'>
+This app is meant to be executed locally within your home network: no extra attention
+was paid to security regarding external attacks or access management.
+You can however put it behind
+<a href='https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/' target='_blank'>basic auth</a>
+and/or other restrictions via either
+<a href='https://nginx.org/en/' target='_blank'>nginx</a>
+or
+<a href='https://apache.org/' target='_blank'>apache</a>
+, use
+<a href='https://openvpn.net/community-resources/how-to/' target='_blank'>your own</a>
+local
+<a href='https://restoreprivacy.com/vpn/' target='_blank'>VPN</a>
+, or a
+<a href='https://www.howtogeek.com/168145/how-to-use-ssh-tunneling/' target='_blank'>SSH tunnel</a>
+.
+</div>
+</div>
+</div>
+<div class='title is-4 mt-4 mb-2'>1. Initial installation</div>
+<div class='notification is-info'>
+<div class='columns'>
+<div class='column is-1 has-text-centered'>
+<span class='icon is-large'>
+<i class='mdi mdi-alert-circle-outline mdi-48px'></i>
+</span>
+</div>
+<div class='column'>
+You can do a
+<strong>local installation</strong>
+or use a
+<strong>docker image</strong>
+: they are functionally equals however the
+<em>local installation</em>
+can run external programs installed in the same system (like a file manager,
+terminal, image editor, ...) but the
+<em>docker image</em>
+cannot.
+</div>
+</div>
+</div>
+<div class='title is-5 mt-4 mb-2'>
+1.1 Using
+<span class='is-family-monospace'>docker</span>
+</div>
+<div class='pl-5'>
+<pre><code class='language-shell'># download image
+docker pull ryogachan/djmngr
+
+# run image
+docker run --rm -ti --name trash \
+  -p "3000:3000" \
+  -v /path/to/db:/app/db                  \
+  -v /path/to/library:/app/dj-library     \
+  -v /path/to/epub:/app/public/epub       \
+  -v /path/to/thumbs:/app/public/thumbs   \
+  -v /path/to/samples:/app/public/samples \
+  ryogachan/djmngr</code></pre>
+</div>
+<div class='title is-5 mt-4 mb-2'>
+1.2 Using
+<a href="https://docs.docker.com/get-started/08_using_compose/" class="is-family-monospace" target="_blank">docker-compose</a>
+</div>
+<div class='pl-5'>
+<pre><code class='language-shell'># download image
+docker pull ryogachan/djmngr
+
+# download and customize docker-compose file
+wget https://github.com/ryoga-chan/djmngr/raw/main/docker/compose.yml
+
+# edit port/folders in compose.yml, then:
+docker compose up -d  # start app in background
+docker compose down   # stop app</code></pre>
+</div>
+<div class='title is-5 mt-4 mb-2'>1.3 Local installation</div>
+<div class='pl-5'>
+<pre><code class='language-shell'># install prerequisites
+apt install libvips-dev libkakasi2-dev libjpeg-dev \
+  libpng-dev webp zip unzip findutils grep coreutils \
+  nodejs imagemagick sqlite3
+
+# install optional tools
+apt install mcomix thunar graphviz p7zip-full
+
+# install ruby 3.2.0 (you can use RBENV, RVM, or system package)
+curl -sSL https://get.rvm.io | bash -s stable
+rvm install "3.2.0"
+
+# clone repository
+git clone https://github.com/ryoga-chan/djmngr.git
+cd djmngr
+
+# install gems
+bundle install
+
+# run database migrations
+RAILS_ENV=production ./bin/rails db:migrate
+
+# run standalone server
+RAILS_SERVE_STATIC_FILES=true ./bin/server p</code></pre>
+</div>
+On the first run wait for assets compilation to finish, then visit
+<a href='http://localhost:39102/'>http://localhost:39102/</a>
+.
+<div class='title is-4 mt-4 mb-2'>2. Post installation</div>
+<div class='content'>
+<ul>
+<li>
+Configure the app in the
+<em>Menu > Tools > Settings</em>
+page
+</li>
+<li>
+Your database is stored in the file
+<tt>/app_dir/db/production.sqlite3</tt>
+</li>
+<li>
+EPUB files are saved in
+<tt>/app_dir/public/epub/</tt>
+</li>
+<li>
+ZIP thumbnails are stored in
+<tt>/app_dir/public/thumbs/</tt>
+</li>
+</ul>
+</div>
+<div class='title is-4 mt-4 mb-2'>3. How to update</div>
+<div class='title is-5 mt-4 mb-2'>3.1 Docker</div>
+Just increase the image version tag or pull again the
+<em>latest</em>
+tag then run it, database migrations will run automatically.
+<div class='title is-5 mt-4 mb-2'>3.2 Local installation</div>
+<div class='pl-5'>
+<pre><code class='language-shell'>git pull        # update sources
+
+bundle install  # update gems
+
+# run database migrations
+RAILS_ENV=production ./bin/rails db:migrate</code></pre>
+</div>
+
+</section>
+</body>
+</html>

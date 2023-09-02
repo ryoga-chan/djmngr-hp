@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html class='has-navbar-fixed-top'>
+<head>
+<meta charset='utf-8'>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='width=device-width,initial-scale=1,shrink-to-fit=no' name='viewport'>
+<link href='/djmngr-hp/images/books.ico' rel='shortcut icon'>
+<link href='/djmngr-hp/images/books-46f3db8a.png' rel='icon' sizes='400x400' type='image/png'>
+<title>DjMngr | Manage a collection of zipped image sets</title>
+<link href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css' rel='stylesheet'>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css' rel='stylesheet'>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-language/prism-show-language.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js'></script>
+<link href="/djmngr-hp/stylesheets/site-fbc4401d.css" rel="stylesheet" />
+<script src="/djmngr-hp/javascripts/site-6b038d09.js"></script>
+</head>
+<body class='line-numbers'>
+<nav class='navbar is-fixed-top is-light has-shadow' role='navigation'>
+<div class='navbar-brand'>
+<a href="/djmngr-hp/" title="home page" class="navbar-item"><img src="/djmngr-hp/images/books-46f3db8a.png" style="border-radius: 0.5rem" class="app-logo" alt="" />
+</a><a class='navbar-burger no-spinner' data-target='appNavbar' onclick='jQuery(this).add(&#39;#appNavbar&#39;).toggleClass(&#39;is-active&#39;) ' role='button'>
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+<div class='navbar-menu' id='appNavbar'>
+<div class='navbar-start'>
+<span class='navbar-item'>
+<a href="/djmngr-hp/"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-home'></i>
+</span>
+<span>Info</span>
+</span>
+</a></span>
+<span class='navbar-item'>
+<a href="/djmngr-hp/install.html"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-monitor-arrow-down-variant'></i>
+</span>
+<span>Install</span>
+</span>
+</a></span>
+<span class='navbar-item has-dropdown is-hoverable' onclick='jQuery(this).toggleClass(&#39;is-active&#39;)'>
+<a class='navbar-link'>
+<span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-book-open-page-variant-outline'></i>
+</span>
+<span>Docs</span>
+</span>
+</a>
+<div class='navbar-dropdown'>
+<a href="/djmngr-hp/ereader.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-tablet-cellphone'></i>
+</span>
+<span>Simpler GUI</span>
+</a><a href="/djmngr-hp/process.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-cog-outline'></i>
+</span>
+<span>Process</span>
+</a><a href="/djmngr-hp/metadata.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-folder-information-outline'></i>
+</span>
+<span>Metadata</span>
+</a><a href="/djmngr-hp/browse.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-database-search-outline'></i>
+</span>
+<span>Browse</span>
+</a><a href="/djmngr-hp/show.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-card-account-details-outline'></i>
+</span>
+<span>Detail</span>
+</a><a href="/djmngr-hp/shortcuts.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-keyboard-outline'></i>
+</span>
+<span>Shortcuts</span>
+</a><a href="/djmngr-hp/datasets.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-file-download-outline'></i>
+</span>
+<span>Datasets</span>
+</a></div>
+</span>
+</div>
+<div class='navbar-end'>
+<div class='navbar-item'>
+<div class='buttons'>
+<a href="https://github.com/ryoga-chan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-github'></i>
+</span>
+<span>GitHub</span>
+</a><a href="https://hub.docker.com/r/ryogachan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-docker'></i>
+</span>
+<span>Docker</span>
+</a></div>
+</div>
+</div>
+</div>
+</nav>
+<section class='section main-content pt-4'>
+<div class='title is-3'>Process section</div>
+<div class='block'>In this section you can refine the contents of the initial ZIP file and add its metadata.</div>
+<div class='title is-4 mt-4 mb-2'>Single file processing</div>
+<div class='columns'>
+<div class='column'>
+<div class='box content'>
+<ol>
+<li>
+Click on
+<em>Menu > Process</em>
+to see the index page.
+</li>
+<li>
+Click
+<em>refresh</em>
+button to scan
+<em>to-sort</em>
+folder for ZIP files and build a list.
+</li>
+<li>
+Click
+<em>preview</em>
+button to generate a preview collage image for the files present
+in the first page.
+</li>
+<li>
+Click a
+<em>file name</em>
+to start processing that file.
+</li>
+</ol>
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-01-index-0834f239.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-01-index-0834f239.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-02-preview-cdb891bf.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-02-preview-cdb891bf.png" alt="" />
+</figure>
+</a></div>
+<div class='column'>
+<div class='box'>
+This is the index with preview images generated (on mobile a vertical image
+will be shown).
+<div class='content'>
+<ul>
+<li>
+Click the
+<strong>bin</strong>
+to delete the ZIP file and remove it from list.
+</li>
+<li>
+With the
+<strong>actions</strong>
+buttons you can: read, random preview, compare, read in external app,
+open filemanager.
+</li>
+<li>
+Click a
+<strong>file name</strong>
+to start processing that file.
+</li>
+<li>
+Click on
+<strong>do later</strong>
+button to move the ZIP file in the
+<em>zz_later</em>
+subfolder (it will be at the end of the list).
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class='title is-4 mt-4 mb-2'>Batch file processing</div>
+<div class='block'>
+This mode prepares or completely process each selected file copying the metadata
+from another already processed file.
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box content'>
+<ol>
+<li>
+Click on
+<em>batch</em>
+button to switch to
+<em>batch select mode.</em>
+</li>
+<li>
+Select a group of ZIP files to be processed.
+</li>
+<li>
+Click
+<em>prepare</em>
+button to start analizing each ZIP file.
+Beware of the total size bacause you will need that for the subsequent
+decompression.
+</li>
+</ol>
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-batch-01-2749e5ec.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-batch-01-2749e5ec.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-batch-02-bba1d5ad.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-batch-02-bba1d5ad.png" alt="" />
+</figure>
+</a></div>
+<div class='column'>
+<div class='box content'>
+<ol>
+<li>
+Insert the
+<em>ID</em>
+of an already processed file.
+</li>
+<li>
+Or click the
+<em>copy</em>
+button to insert the last file ID processed. You can view the last
+processed file by clicking the
+<em>eye</em>
+button.
+</li>
+<li>
+Choose to
+<em>prepare</em>
+or
+<em>process</em>
+each file.
+<br>
+<strong>Prepare:</strong>
+unzips the file and copies metadata for later modification and finalization.
+Click
+<em>Menu > Process</em>
+to see items currently in process.
+<br>
+<strong>Process:</strong>
+unzips the file, copies metadata, and runs the finalization (store result
+in collection).
+You can delete the original file later.
+</li>
+</ol>
+<div class='block content'>
+With all the informations on screen you can choose the action (prepare/process)
+before starting the batch job, in addition you can:
+<ul>
+<li>decide common settings to apply to all files;</li>
+<li>change the file name to be used later;</li>
+<li>remove a ZIP file from the list (does not delete the original file);</li>
+<li>check file names within the ZIP file;</li>
+<li>
+in case you select the
+<strong>Process</strong>
+action, you can choose to keep the landscape cover cropped as is, if
+not the finalization for that file will fail requiring later manual
+action.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class='title is-4 mt-4 mb-2'>Individual file processing</div>
+<div class='block'>
+In this section you inspect and manipulate ZIP file contents, assign metadata and
+destination folders.
+The process consists in various steps identified by the tabs on top.
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box'>
+In this tab you look for duplicates and decide what to do: delete this file,
+delete the file in collection, visually compare them, ...
+<div class='content'>
+<ol>
+<li>
+Click on
+<em>Delete WIP</em>
+button to delete this working folder.
+</li>
+<li>
+Click on
+<em>Delete ALL</em>
+button to delete this working folder
+<strong>and</strong>
+the source ZIP file.
+</li>
+<li>
+Use this input field to find duplicates by title.
+</li>
+<li>
+This line show the status of the cover matching job.
+You can restart it in case of need.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-edit-01-dupes-10e5fbe4.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-edit-01-dupes-10e5fbe4.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box'>
+In this tab you can remove or rename the unzipped files.
+<div class='content'>
+<ol>
+<li>
+With this toolbar you can mass enumerate/rename all files
+</li>
+<li>
+Click on
+<em>Edit</em>
+button to selectively rename a file.
+A file is renamed when the input field loses its focus.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-edit-02-names-65d1ac47.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-edit-02-names-65d1ac47.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box'>
+In this tab you can visually remove, rename, or zoom the unzipped images.
+The default select/zoom mechanism can be selected in
+<em>Tools > Settings > process_img_sel.</em>
+<div class='content'>
+<ol>
+<li>
+Click on the
+<em>top half</em>
+of the image to toggle its selection.
+</li>
+<li>
+Click on the
+<em>lower half</em>
+of the image to zoom it.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-edit-03-pics-1b5e5f3e.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-edit-03-pics-1b5e5f3e.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box'>
+In this tab you can set the main folder destination of the ZIP file
+and associate it to authors and circles (groups).
+This follows the
+<em>disk folders organization</em>
+as described in the
+<a href="/djmngr-hp/">Info</a>
+page.
+<div class='content'>
+<ol>
+<li>
+Select the
+<em>category</em>
+of this set (main folder).
+</li>
+<li>
+Input the
+<em>name/series name</em>
+(secondary folder).
+</li>
+<li>
+Click on a
+<em>name</em>
+to search for it. This is auto pupolated from the original ZIP file name
+if it is named as:
+<ul>
+<li>
+<strong>[circle X, circle Y, ... (author A, author B, ...)] title.zip</strong>
+</li>
+<li>
+<strong>magazine title YYYY-MM.zip</strong>
+</li>
+<li>
+<strong>artbook title.zip</strong>
+</li>
+</ul>
+</li>
+<li>
+Input you custom search terms.
+</li>
+<li>
+If the term does not exist, you can click on the
+<em>plus</em>
+button to create an Author/Circle from it.
+</li>
+<li>
+Click on the
+<em>plus/minus</em>
+symbols to set/remove the association to that author/circle.
+</li>
+<li>
+In the
+<em>Associations</em>
+column you can choose the principal author/circle, this merely sets
+the destination folder in (2).
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-edit-04-ident-fd6b10f5.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-edit-04-ident-fd6b10f5.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box'>
+In this tab you can set metadata, score, eventual subfolder, and final ZIP file name.
+<br>
+In the last metadata row you can see what will be the complete path of the
+file in the collection.
+<br>
+On the lower buttons toolbar you can update the metadata, restart a cover
+match search, and begin the finalization process (apply previously decided
+actions and store in collection).
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-edit-05-move-01-3b1b629d.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-edit-05-move-01-3b1b629d.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column'>
+<div class='box'>
+The first image of the set is used as a portrait cover, in case you have
+a landscape image then in this final tab you can decide the cropping method/level
+or edit it in an external application then click
+<em>refresh thumb</em>
+button.
+</div>
+</div>
+<div class='column is-6'>
+<a href="/djmngr-hp/images/process-edit-05-move-02-7057455b.png"><figure class='image'>
+<img src="/djmngr-hp/images/process-edit-05-move-02-7057455b.png" alt="" />
+</figure>
+</a></div>
+</div>
+
+</section>
+</body>
+</html>

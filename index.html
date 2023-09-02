@@ -1,25 +1,393 @@
 <!DOCTYPE html>
-<html>
+<html class='has-navbar-fixed-top'>
 <head>
 <meta charset='utf-8'>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='width=device-width,initial-scale=1,shrink-to-fit=no' name='viewport'>
+<link href='/djmngr-hp/images/books.ico' rel='shortcut icon'>
+<link href='/djmngr-hp/images/books-46f3db8a.png' rel='icon' sizes='400x400' type='image/png'>
 <title>DjMngr | Manage a collection of zipped image sets</title>
 <link href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css' rel='stylesheet'>
 <link href='https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
-<link href="/stylesheets/site-818bff4e.css" rel="stylesheet" />
-<script src="/javascripts/site-6b038d09.js"></script>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css' rel='stylesheet'>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-language/prism-show-language.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js'></script>
+<link href="/djmngr-hp/stylesheets/site-fbc4401d.css" rel="stylesheet" />
+<script src="/djmngr-hp/javascripts/site-6b038d09.js"></script>
 </head>
-<body>
-<div class='columns'>
-<div class='column is-4 is-offset-4 has-text-centered'>
+<body class='line-numbers'>
+<nav class='navbar is-fixed-top is-light has-shadow' role='navigation'>
+<div class='navbar-brand'>
+<a href="/djmngr-hp/" title="home page" class="navbar-item"><img src="/djmngr-hp/images/books-46f3db8a.png" style="border-radius: 0.5rem" class="app-logo" alt="" />
+</a><a class='navbar-burger no-spinner' data-target='appNavbar' onclick='jQuery(this).add(&#39;#appNavbar&#39;).toggleClass(&#39;is-active&#39;) ' role='button'>
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+<div class='navbar-menu' id='appNavbar'>
+<div class='navbar-start'>
+<span class='navbar-item'>
+<a href="/djmngr-hp/"><span class='icon-text'>
 <span class='icon'>
 <i class='mdi mdi-home'></i>
 </span>
-TODO
+<span>Info</span>
+</span>
+</a></span>
+<span class='navbar-item'>
+<a href="/djmngr-hp/install.html"><span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-monitor-arrow-down-variant'></i>
+</span>
+<span>Install</span>
+</span>
+</a></span>
+<span class='navbar-item has-dropdown is-hoverable' onclick='jQuery(this).toggleClass(&#39;is-active&#39;)'>
+<a class='navbar-link'>
+<span class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-book-open-page-variant-outline'></i>
+</span>
+<span>Docs</span>
+</span>
+</a>
+<div class='navbar-dropdown'>
+<a href="/djmngr-hp/ereader.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-tablet-cellphone'></i>
+</span>
+<span>Simpler GUI</span>
+</a><a href="/djmngr-hp/process.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-cog-outline'></i>
+</span>
+<span>Process</span>
+</a><a href="/djmngr-hp/metadata.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-folder-information-outline'></i>
+</span>
+<span>Metadata</span>
+</a><a href="/djmngr-hp/browse.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-database-search-outline'></i>
+</span>
+<span>Browse</span>
+</a><a href="/djmngr-hp/show.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-card-account-details-outline'></i>
+</span>
+<span>Detail</span>
+</a><a href="/djmngr-hp/shortcuts.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-keyboard-outline'></i>
+</span>
+<span>Shortcuts</span>
+</a><a href="/djmngr-hp/datasets.html" class="navbar-item"><span class='icon'>
+<i class='mdi mdi-file-download-outline'></i>
+</span>
+<span>Datasets</span>
+</a></div>
+</span>
+</div>
+<div class='navbar-end'>
+<div class='navbar-item'>
+<div class='buttons'>
+<a href="https://github.com/ryoga-chan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-github'></i>
+</span>
+<span>GitHub</span>
+</a><a href="https://hub.docker.com/r/ryogachan/djmngr" class="button is-info is-outlined" target="_blank"><span class='icon'>
+<i class='mdi mdi-docker'></i>
+</span>
+<span>Docker</span>
+</a></div>
 </div>
 </div>
+</div>
+</nav>
+<section class='section main-content pt-4'>
+<div class='box'>
+<div class='title is-3 mb-2'>DjMngr &middot; Doujinshi manager</div>
+<div class='block'>
+This application is made for doujin/manga/comics/novel readers and photographers to
+<strong>manage a collection of zipped image sets</strong>
+, easying their work with sorting files, assigning metedata, searching, and
+reading online from any device.
+</div>
+<hr>
+<div class='block'>
+As time passes by we accumulate more and more images,
+<em>saving them individually</em>
+on disk takes a lot of space, instead
+<em>zipping each set/folder</em>
+helps freeing a big chunk of disk space.
+<br>
+Technically speaking we do not save much space by compressing images but instead
+by reducing unused space in disk blocks: each file does waste some space, so
+instead of
+<em>a big number</em>
+of files wasting precious KiB we only have a
+<em>single one.</em>
+This leads to a 10~20% of freed space,
+<a href='https://dictionary.cambridge.org/dictionary/english/ymmv' target='_blank'>YMMV</a>
+.
+</div>
+<div class='block'>
+In doing so arises the need of an application to easily view these compressed
+sets of images, in addition to DjMngr there are a miriad of options out there:
+<a href='https://sourceforge.net/p/mcomix/wiki/Home/' target='_blank'>MComix</a>
+,
+<a href='https://www.faststone.org' target='_blank'>FastStone MaxView</a>
+,
+<a href='https://www.acdsee.com/en/products/acdsee-free/' target='_blank'>ACDsee</a>
+,
+and
+<a href='https://duckduckgo.com/?q=zip+image+viewer' target='_blank'>more</a>
+; but
+<strong>DjMngr</strong>
+<em>has more to offer than a simple viewer!</em>
+</div>
+</div>
+<div class='columns'>
+<div class='column is-6'>
+<div class='box content'>
+<ul>
+<li>
+Curated
+<strong>processing</strong>
+of image sets
+</li>
+<li>
+Read or preview contents
+<strong>from any device</strong>
+</li>
+<li>Browse by metadata and search by title</li>
+<li>
+Find duplicates by title or
+<strong>cover similarity</strong>
+</li>
+<li>
+<strong>Compare</strong>
+multiple sets side by side
+</li>
+<li>
+Generate
+<strong>EPUB</strong>
+for your device
+</li>
+<li>
+Create
+<em>shelves,</em>
+assign
+<em>scores,</em>
+set
+<em>favorites,</em>
+...
+</li>
+</ul>
+</div>
+</div>
+<div class='column'>
+<a href="/djmngr-hp/images/home-0a0c1ab3.png"><figure class='image mt-5'>
+<img src="/djmngr-hp/images/home-0a0c1ab3.png" alt="" />
+</figure>
+</a></div>
+</div>
+<div class='columns'>
+<div class='column'>
+<a href="/djmngr-hp/images/browse-01-329fe1b1.png"><figure class='image mt-5'>
+<img src="/djmngr-hp/images/browse-00-d882090b.png" alt="" />
+</figure>
+</a></div>
+<div class='column is-6'>
+<div class='box'>
+<div class='title is-3 mb-2'>Collection workflow</div>
+<div class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-numeric-1-circle'></i>
+</span>
+<span>
+Put ZIP files in
+<em>to-sort</em>
+folder
+</span>
+</div>
+<div class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-numeric-2-circle'></i>
+</span>
+<span>
+<em>Process</em>
+each ZIP file (individually or in batches)
+</span>
+</div>
+<div class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-numeric-3-circle'></i>
+</span>
+<span>
+Add
+<em>metadata</em>
+beforehand or while processing
+</span>
+</div>
+<div class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-numeric-4-circle'></i>
+</span>
+<span>
+Explore your collection by author/circle/category/...
+</span>
+</div>
+<div class='icon-text'>
+<span class='icon'>
+<i class='mdi mdi-numeric-5-circle'></i>
+</span>
+<span>
+View details of an item and take actions (read, edit, ...)
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class='title is-3 mt-4 mb-2'>On disk folders organization</div>
+<div class='columns'>
+<div class='column is-6'>
+<div class='box'>
+These three folders can be customized in the
+<em>Settings</em>
+menu:
+<div class='columns mt-2'>
+<div class='column is-2'>
+<div class='icon-text'>
+<span class='icon is-medium'>
+<i class='mdi mdi2x mdi-folder-arrow-left-right-outline'></i>
+</span>
+<span>
+<strong>to-sort</strong>
+</span>
+</div>
+</div>
+<div class='column'>
+Contains ZIP files to be processed in order to add them to the collection.
+</div>
+</div>
+<div class='columns'>
+<div class='column is-2'>
+<div class='icon-text'>
+<span class='icon is-medium'>
+<i class='mdi mdi2x mdi-folder-cog-outline'></i>
+</span>
+<span>
+<strong>sorting</strong>
+</span>
+</div>
+</div>
+<div class='column'>
+Contains ZIP files being processed. Thery are unzipped here for
+manipulation before being rezipped into the collection.
+</div>
+</div>
+<div class='columns'>
+<div class='column is-2'>
+<div class='icon-text'>
+<span class='icon is-medium'>
+<i class='mdi mdi2x mdi-folder-check-outline'></i>
+</span>
+<span>
+<strong>sorted</strong>
+</span>
+</div>
+</div>
+<div class='column'>
+Contains the processed ZIP files. An embedded metadata file is
+added containing both initial and processing data.
+</div>
+</div>
+</div>
+</div>
+<div class='column'>
+<div class='box'>
+<div class='mb-2'>
+ZIP files in
+<strong>sorted</strong>
+folder are arranged diffently by
+<span class='tag is-dark'>category</span>
+as follows:
+<div class='tags has-addons no-mb mt-2'>
+<span class='tag is-dark'>/authors/</span>
+<span class='tag is-info'>&lt;name&gt;/</span>
+<span class='tag is-link'>[subfolder/]</span>
+<span class='tag'>file.zip</span>
+</div>
+<div class='descr'>
+Author
+<em>name,</em>
+optional
+<em>subfolder,</em>
+<em>file name</em>
+</div>
+<div class='tags has-addons no-mb mt-2'>
+<span class='tag is-dark'>/circles/</span>
+<span class='tag is-info'>&lt;name&gt;/</span>
+<span class='tag is-link'>[subfolder/]</span>
+<span class='tag'>file.zip</span>
+</div>
+<div class='descr'>
+Circle (group)
+<em>name,</em>
+optional
+<em>subfolder,</em>
+<em>file name</em>
+</div>
+<div class='tags has-addons no-mb mt-2'>
+<span class='tag is-dark'>/magz/</span>
+<span class='tag is-info'>&lt;name&gt;/</span>
+<span class='tag is-link'>[subfolder/]</span>
+<span class='tag'>file.zip</span>
+</div>
+<div class='descr'>
+Magazine
+<em>name,</em>
+optional
+<em>subfolder,</em>
+<em>file name</em>
+</div>
+<div class='tags has-addons no-mb mt-2'>
+<span class='tag is-dark'>/artbooks/</span>
+<span class='tag is-info'>[series name/]</span>
+<span class='tag is-link'>[subfolder/]</span>
+<span class='tag'>file.zip</span>
+</div>
+<div class='descr'>
+Optional
+<em>series name,</em>
+optional
+<em>subfolder,</em>
+<em>file name</em>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='title is-3 mt-4 mb-2'>Technology</div>
+This software is a web application written in
+<a href='https://www.ruby-lang.org/en/' target='_blank'>Ruby</a>
+with the
+<a href='https://rubyonrails.org' target='_blank'>Ruby on Rails</a>
+framework at server side,
+<a href='https://bulma.io' target='_blank'>Bulma</a>
+and
+<a href='https://jquery.com' target='_blank'>jQuery</a>
+at client side.
+<br>
+Application data is stored in the famous
+<em>one-file-database</em>
+<a href='https://www.sqlite.org' target='_blank'>SQLite</a>
+widely used in many applications.
 
+</section>
 </body>
 </html>
