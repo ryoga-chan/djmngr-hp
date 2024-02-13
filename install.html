@@ -169,25 +169,28 @@ cannot.
 </div>
 <div class='pl-5'>
 <pre><code class='language-shell'># download image
-docker pull ryogachan/djmngr
+docker pull ryogachan/djmngr:latest
 
 # run image
 docker run --rm -ti --name djmngr \
   -p "3000:3000" \
-  -v /path/to/db:/app/db                  \
+  -v /path/to/db:/app/storage             \
   -v /path/to/library:/app/dj-library     \
   -v /path/to/epub:/app/public/epub       \
   -v /path/to/thumbs:/app/public/thumbs   \
   -v /path/to/samples:/app/public/samples \
   ryogachan/djmngr</code></pre>
 </div>
+Then visit
+<a href='http://localhost:3000/'>http://localhost:3000/</a>
+.
 <div class='title is-5 mt-4 mb-2'>
 1.2 Using
 <a href="https://docs.docker.com/get-started/08_using_compose/" class="is-family-monospace" target="_blank">docker-compose</a>
 </div>
 <div class='pl-5'>
 <pre><code class='language-shell'># download image
-docker pull ryogachan/djmngr
+docker pull ryogachan/djmngr:latest
 
 # download and customize docker-compose file
 wget https://github.com/ryoga-chan/djmngr/raw/main/docker/compose.yml
@@ -196,12 +199,15 @@ wget https://github.com/ryoga-chan/djmngr/raw/main/docker/compose.yml
 docker compose up -d  # start app in background
 docker compose down   # stop app</code></pre>
 </div>
+Then visit
+<a href='http://localhost:3000/'>http://localhost:3000/</a>
+.
 <div class='title is-5 mt-4 mb-2'>1.3 Local installation</div>
 <div class='pl-5'>
 <pre><code class='language-shell'># install prerequisites
-apt install libvips-dev libkakasi2-dev libjpeg-dev libsqlite3-0 \
-  libpng-dev webp zip unzip findutils grep coreutils \
-  nodejs imagemagick sqlite3
+apt install coreutils findutils grep zip unzip \
+  libkakasi2-dev libsqlite3-0 sqlite3 p7zip-full nodejs \
+  libvips-dev libjpeg62-turbo-dev libpng-dev webp imagemagick
 
 # install optional tools
 apt install mcomix thunar xfce4-terminal
@@ -223,9 +229,19 @@ RAILS_ENV=production ./bin/rails db:migrate
 # run standalone server
 RAILS_SERVE_STATIC_FILES=true ./bin/server p</code></pre>
 </div>
-On the first run wait for assets compilation to finish, then visit
+On the first run wait a moment for assets compilation to finish, then visit
 <a href='http://localhost:39102/'>http://localhost:39102/</a>
 .
+<div class='mt-1'>
+<b>Note:</b>
+It is
+<em>recommended</em>
+to run the server with
+<tt>./bin/server p</tt>
+behind a
+<em>reverse proxy</em>
+like Nginx or Apache because they are better at serving many static files.
+</div>
 <div class='title is-4 mt-4 mb-2'>2. Post installation</div>
 <div class='content'>
 <ul>
