@@ -229,6 +229,19 @@ RAILS_ENV=production ./bin/rails db:migrate
 # run standalone server
 RAILS_SERVE_STATIC_FILES=true ./bin/server p</code></pre>
 </div>
+<b>Note:</b>
+If you don't have set a
+<a href='https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry' target='_blank'>
+github RubyGems registry personal access token
+</a>
+you can alternatively add the variable
+<tt>PHASHION_USE_GITHUB_SRC</tt>
+to the last three commands in order to fetch gem sources directly:
+<div class='pl-5'>
+<pre><code class='language-shell'>PHASHION_USE_GITHUB_SRC=true bundle install
+PHASHION_USE_GITHUB_SRC=true RAILS_ENV=production ./bin/rails db:migrate
+PHASHION_USE_GITHUB_SRC=true RAILS_SERVE_STATIC_FILES=true ./bin/server p</code></pre>
+</div>
 On the first run wait a moment for assets compilation to finish, then visit
 <a href='http://localhost:39102/'>http://localhost:39102/</a>
 .
@@ -240,7 +253,10 @@ to run the server with
 <tt>./bin/server p</tt>
 behind a
 <em>reverse proxy</em>
-like Nginx or Apache because they are better at serving many static files.
+like Nginx or Apache because they are better at serving many static files
+(e.g. take a look at this project's
+<a href='https://github.com/ryoga-chan/djmngr/blob/main/docker/etc/nginx/nginx.conf' target='_blank'>nginx.conf</a>
+file).
 </div>
 <div class='title is-4 mt-4 mb-2'>2. Post installation</div>
 <div class='content'>
