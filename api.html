@@ -116,15 +116,184 @@
 </div>
 </nav>
 <section class='section main-content pt-4'>
-<div class='title is-3'>Shortcuts</div>
+<div class='title is-3'>Available APIs</div>
+<div class='notification is-info'>
+<div class='columns'>
+<div class='column is-1 has-text-centered'>
+<span class='icon is-large'>
+<i class='mdi mdi-information-variant-circle-outline mdi-48px'></i>
+</span>
+</div>
+<div class='column'>
+If you have configured the
+<em>basic_auth</em>
+field in
+<em>Menu > Tools > Settings</em>
+then remember to set basic auth headers on your HTTP request.
+</div>
+</div>
+</div>
+<div class='box'>
+<div class='title is-4 mb-2'>1. Translitterate string to romaji</div>
+<div class='pl-5'>
+<div class='block has-background-white-ter py-1'>
+<span class='tag is-light is-success'>GET</span>
+<span class='tags has-addons' style='display: inline-flex'>
+<span class='tag is-light is-info'>/ws/to_romaji</span>
+<span class='tag is-light is-warning'>?s=xxxxxx</span>
+</span>
+</div>
+<div class='columns'>
+<div class='column is-7'>
+<div class='title is-6'>
+Response:
+<tt class='ml-6'>text/plain</tt>
+</div>
+<div class='content'>
+<ul>
+<li>content with the translitterated string</li>
+</ul>
+</div>
+</div>
+<div class='column'>
+<div class='title is-6'>Parameters:</div>
+<div class='content'>
+<ul>
+<li>
+<tt class='tag'>s</tt>
+= string to be translitterated
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='box'>
+<div class='title is-4 mb-2'>2. Download image into a dummy processing archive</div>
+<div class='pl-5'>
+<div class='block has-background-white-ter py-1'>
+<span class='tag is-light is-success'>GET | POST</span>
+<span class='tags has-addons' style='display: inline-flex'>
+<span class='tag is-light is-info'>/ws/dl_image</span>
+<span class='tag is-light is-warning'>u, n, t, s, r</span>
+</span>
+</div>
+<div class='columns'>
+<div class='column is-7'>
+<div class='title is-6'>
+Response:
+<tt class='ml-6'>application/json</tt>
+</div>
+<div class='content'>
+<ul>
+<li>
+the result of the download operation:
+<pre><code class='language-json'>{
+  "result": "ok|err",
+  "msg": "eventual error message"
+}</code></pre>
+</li>
+<li>
+visiting
+<tt>/process</tt>
+you will see the newly created archive
+</li>
+</ul>
+</div>
+</div>
+<div class='column'>
+<div class='title is-6'>Parameters:</div>
+<div class='content'>
+<ul>
+<li>
+<tt class='tag'>u</tt>
+= url pointing to an image to download (can also be an E-Hentai page link)
+</li>
+<li>
+<tt class='tag'>n</tt>
+= destination filename
+</li>
+<li>
+<tt class='tag'>t</tt>
+= destination folder (archive name)
+</li>
+<li>
+<tt class='tag'>s</tt>
+=
+<tt>XxY|Xx|xY</tt>
+, downscale image to this resolution while keeping its aspect ratio
+</li>
+<li>
+<tt class='tag'>r</tt>
+= set HTTP Referer header to this value
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='box'>
+<div class='title is-4 mb-2'>3. E-Hentai aggregated search</div>
+<div class='pl-5'>
+<div class='block has-background-white-ter py-1'>
+<span class='tag is-light is-success'>GET</span>
+<span class='tags has-addons' style='display: inline-flex'>
+<span class='tag is-light is-info'>/ws/ehentai</span>
+<span class='tag is-light is-warning'>?term=xxxxxx</span>
+</span>
+</div>
 <div class='block'>
-Type
-<strong>?</strong>
-anywhere in the application to see all available keyboard shortcuts for that page.
-<a href="/djmngr-hp/images/shortcuts-fa4653c2.png"><figure class='image mt-2'>
-<img src="/djmngr-hp/images/shortcuts-fa4653c2.png" alt="" />
-</figure>
-</a></div>
+Scrapes the first E-H index page filtered by
+<tt>term</tt>
+then queries its API to get supplementary informations.
+</div>
+<div class='columns'>
+<div class='column is-7'>
+<div class='title is-6'>
+Response:
+<tt class='ml-6'>application/json</tt>
+</div>
+<div class='content'>
+<ul>
+<li>
+an array of results, example:
+<pre><code class='language-json'>[
+  {
+    "gid": 1234567,
+    "token": "aa11bb22cc",
+    "title": "Entry title",
+    "title_jpn": "",
+    "thumb": "https://...",
+    "filecount": "123",
+    "filesize": 45678910,
+    "posted": "2024-01-01T00:01:01.000+00:00",
+    "site": "source-website",
+    "url": "https://...",
+    "title_clean": "tokenized title",
+    "title_jpn_clean": "tokenized title"
+  },
+  ...
+]</code></pre>
+</li>
+</ul>
+</div>
+</div>
+<div class='column'>
+<div class='title is-6'>Parameters:</div>
+<div class='content'>
+<ul>
+<li>
+<tt class='tag'>term</tt>
+= search string
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 </section>
 </body>
