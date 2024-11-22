@@ -1,0 +1,140 @@
+.title.is-3 Available APIs
+
+.notification.is-info
+  .columns
+    .column.is-1.has-text-centered
+      %span.icon.is-large
+        %i.mdi.mdi-information-variant-circle-outline.mdi-48px
+    .column
+      If you have configured the
+      %em basic_auth
+      field in
+      %em Menu > Tools > Settings
+      then remember to set basic auth headers on your HTTP request.
+
+.box
+  .title.is-4.mb-2 1. Translitterate string to romaji
+  .pl-5
+    .block.has-background-white-ter.py-1
+      %span.tag.is-light.is-success GET
+      %span.tags.has-addons(style="display: inline-flex")
+        %span.tag.is-light.is-info    /ws/to_romaji
+        %span.tag.is-light.is-warning ?s=xxxxxx
+
+    .columns
+      .column.is-7
+        .title.is-6
+          Response:
+          %tt.ml-6 text/plain
+        .content
+          %ul
+            %li content with the translitterated string
+      .column
+        .title.is-6 Parameters:
+        .content
+          %ul
+            %li
+              %tt.tag s
+              \= string to be translitterated
+
+.box
+  .title.is-4.mb-2 2. Download image into a dummy processing archive
+  .pl-5
+    .block.has-background-white-ter.py-1
+      %span.tag.is-light.is-success GET | POST
+      %span.tags.has-addons(style="display: inline-flex")
+        %span.tag.is-light.is-info    /ws/dl_image
+        %span.tag.is-light.is-warning u, n, t, s, r
+
+    .columns
+      .column.is-7
+        .title.is-6
+          Response:
+          %tt.ml-6 application/json
+        .content
+          %ul
+            %li
+              the result of the download operation:
+              %pre<
+                %code.language-json
+                  :plain
+                    {
+                      "result": "ok|err",
+                      "msg": "eventual error message"
+                    }
+            %li
+              visiting
+              %tt /process
+              you will see the newly created archive
+      .column
+        .title.is-6 Parameters:
+        .content
+          %ul
+            %li
+              %tt.tag u
+              \= url pointing to an image to download (can also be an E-Hentai page link)
+            %li
+              %tt.tag n
+              \= destination filename
+            %li
+              %tt.tag t
+              \= destination folder (archive name)
+            %li
+              %tt.tag s
+              \=
+              %tt XxY|Xx|xY
+              , downscale image to this resolution while keeping its aspect ratio
+            %li
+              %tt.tag r
+              \= set HTTP Referer header to this value
+
+.box
+  .title.is-4.mb-2 3. E-Hentai aggregated search
+  .pl-5
+    .block.has-background-white-ter.py-1
+      %span.tag.is-light.is-success GET
+      %span.tags.has-addons(style="display: inline-flex")
+        %span.tag.is-light.is-info    /ws/ehentai
+        %span.tag.is-light.is-warning ?term=xxxxxx
+
+    .block
+      Scrapes the first E-H index page filtered by
+      %tt term
+      then queries its API to get supplementary informations.
+
+    .columns
+      .column.is-7
+        .title.is-6
+          Response:
+          %tt.ml-6 application/json
+        .content
+          %ul
+            %li
+              an array of results, example:
+              %pre<
+                %code.language-json
+                  :plain
+                    [
+                      {
+                        "gid": 1234567,
+                        "token": "aa11bb22cc",
+                        "title": "Entry title",
+                        "title_jpn": "",
+                        "thumb": "https://...",
+                        "filecount": "123",
+                        "filesize": 45678910,
+                        "posted": "2024-01-01T00:01:01.000+00:00",
+                        "site": "source-website",
+                        "url": "https://...",
+                        "title_clean": "tokenized title",
+                        "title_jpn_clean": "tokenized title"
+                      },
+                      ...
+                    ]
+      .column
+        .title.is-6 Parameters:
+        .content
+          %ul
+            %li
+              %tt.tag term
+              \= search string

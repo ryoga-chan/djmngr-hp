@@ -2,3 +2,12 @@
 .tags.no-mb + .descr { border-bottom: 1px solid grey; }
 
 .mdi.mdi2x { font-size: 2rem; }
+
+// remove bulma stiling from prism
+pre code .number {
+  font-size: inherit;
+  height:    inherit;
+  margin:    inherit;
+  padding:   inherit;
+  background-color: inherit;
+}

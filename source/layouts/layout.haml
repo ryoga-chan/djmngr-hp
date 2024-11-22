@@ -59,6 +59,13 @@
                   %i.mdi.mdi-monitor-arrow-down-variant
                 %span Install
           
+          %span.navbar-item
+            = link_to 'api.html' do
+              %span.icon-text
+                %span.icon
+                  %i.mdi.mdi-cloud-braces
+                %span API
+          
           %span.navbar-item.has-dropdown.is-hoverable{onclick: "jQuery(this).toggleClass('is-active')"}
             %a.navbar-link
               %span.icon-text
@@ -100,7 +107,7 @@
                 %span.icon
                   %i.mdi.mdi-file-download-outline
                 %span Datasets
-              
+          
         .navbar-end
           .navbar-item
             .buttons
