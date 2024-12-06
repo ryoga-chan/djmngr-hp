@@ -22,13 +22,6 @@
         %span.tag.is-light.is-warning ?s=xxxxxx
 
     .columns
-      .column.is-7
-        .title.is-6
-          Response:
-          %tt.ml-6 text/plain
-        .content
-          %ul
-            %li content with the translitterated string
       .column
         .title.is-6 Parameters:
         .content
@@ -36,6 +29,13 @@
             %li
               %tt.tag s
               \= string to be translitterated
+      .column.is-7
+        .title.is-6
+          Response:
+          %tt.ml-6 text/plain
+        .content
+          %ul
+            %li content with the translitterated string
 
 .box
   .title.is-4.mb-2 2. Download image into a dummy processing archive
@@ -47,25 +47,6 @@
         %span.tag.is-light.is-warning u, n, t, s, r
 
     .columns
-      .column.is-7
-        .title.is-6
-          Response:
-          %tt.ml-6 application/json
-        .content
-          %ul
-            %li
-              the result of the download operation:
-              %pre<
-                %code.language-json
-                  :plain
-                    {
-                      "result": "ok|err",
-                      "msg": "eventual error message"
-                    }
-            %li
-              visiting
-              %tt /process
-              you will see the newly created archive
       .column
         .title.is-6 Parameters:
         .content
@@ -87,6 +68,25 @@
             %li
               %tt.tag r
               \= set HTTP Referer header to this value
+      .column.is-7
+        .title.is-6
+          Response:
+          %tt.ml-6 application/json
+        .content
+          %ul
+            %li
+              the result of the download operation:
+              %pre<
+                %code.language-json
+                  :plain
+                    {
+                      "result": "ok|err",
+                      "msg": "eventual error message"
+                    }
+            %li
+              visiting
+              %tt /process
+              you will see the newly created archive
 
 .box
   .title.is-4.mb-2 3. E-Hentai aggregated search
@@ -103,6 +103,13 @@
       then queries its API to get supplementary informations.
 
     .columns
+      .column
+        .title.is-6 Parameters:
+        .content
+          %ul
+            %li
+              %tt.tag term
+              \= search string
       .column.is-7
         .title.is-6
           Response:
@@ -131,10 +138,58 @@
                       },
                       ...
                     ]
+
+.box
+  .title.is-4.mb-2 4. Web App Manifest share_target actions
+  .pl-5
+    .block.has-background-white-ter.py-1
+      %span.tag.is-light.is-success POST
+      %span.tags.has-addons(style="display: inline-flex")
+        %span.tag.is-light.is-info    /shared_content_receiver
+        %span.tag.is-light.is-warning text, url, images[]
+
+    .block
+      This one is a multi purpose endpoint that's called when a mobile user
+      shares something to this web application.
+      %br/
+      Only
+      %em one parameter per request
+      will be used in order of priority as shown in the list below.
+    
+    .columns
       .column
         .title.is-6 Parameters:
         .content
-          %ul
+          %ol
             %li
-              %tt.tag term
-              \= search string
+              %tt.tag url
+              , or
+              %tt.tag text
+              starting with http
+              %br/
+              \= url pointing to an image to download (can also be an E-Hentai page link)
+            %li
+              %tt.tag text
+              \= string to be translitterated
+            %li
+              %tt.tag images[]
+              containing multiple files
+              %br/
+              \= inject files to a dummy archive
+            %li
+              %tt.tag images[]
+              containing only one file
+              %br/
+              \= perform a search by cover image on collection
+      .column.is-7
+        .title.is-6
+          Response:
+          %tt.ml-6 text/html
+        .content
+          %ol
+            %li operation outcome with a link to the dummy archive
+            %li
+              shows both source and translitterated strings with
+              "copy to clipboard" buttons
+            %li operation outcome with a link to the dummy archive
+            %li redirects to /doujinshi/search_cover

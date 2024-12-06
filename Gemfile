@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #   bundle update
 #   gem cleanup
 
-ruby '3.3.0'
+ruby '3.3.6'
 
 gem 'middleman', '~> 4.5'
 gem 'middleman-autoprefixer', '~> 3.0'

@@ -1,4 +1,3 @@
 #!/usr/bin/bash
-exo-open http://localhost:3000/ &
-exec bundle exec \
-  middleman server -p 3000 --bind-address=127.0.0.1
+#exo-open http://localhost:3000/ &
+exec bundle exec middleman server -p 3000 --bind-address=127.0.0.1
