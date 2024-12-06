@@ -248,7 +248,7 @@ to the last three commands in order to fetch gem sources directly:
 <div class='pl-5'>
 <pre><code class='language-shell'>PHASHION_USE_GITHUB_SRC=true bundle install
 PHASHION_USE_GITHUB_SRC=true RAILS_ENV=production ./bin/rails db:migrate
-PHASHION_USE_GITHUB_SRC=true RAILS_SERVE_STATIC_FILES=true ./bin/server p</code></pre>
+PHASHION_USE_GITHUB_SRC=true ./bin/server p -static</code></pre>
 </div>
 On the first run wait a moment for assets compilation to finish, then visit
 <a href='http://localhost:39102/'>http://localhost:39102/</a>
