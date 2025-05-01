@@ -181,7 +181,7 @@ docker pull ryogachan/djmngr:latest
 
 # run image
 docker run --rm -ti --name djmngr \
-  -p "3000:3000" \
+  -p "3000:39102" \
   -v /path/to/db:/app/storage             \
   -v /path/to/library:/app/dj-library     \
   -v /path/to/epub:/app/public/epub       \
@@ -214,7 +214,7 @@ Then visit
 <div class='pl-5'>
 <pre><code class='language-shell'># install prerequisites
 apt install coreutils findutils grep zip unzip \
-  libkakasi2-dev libsqlite3-0 sqlite3 zstd nodejs \
+  libkakasi2-dev libsqlite3-0 sqlite3 zstd \
   libvips-dev libjpeg62-turbo-dev libpng-dev webp imagemagick
 
 # install optional tools
