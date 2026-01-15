@@ -213,16 +213,16 @@ Then visit
 <div class='title is-5 mt-4 mb-2'>1.3 Local installation</div>
 <div class='pl-5'>
 <pre><code class='language-shell'># install prerequisites
-apt install coreutils findutils grep zip unzip \
-  libkakasi2-dev libsqlite3-0 sqlite3 zstd \
-  libvips-dev libjpeg62-turbo-dev libpng-dev webp imagemagick
+apt install coreutils findutils grep zip unzip zstd \
+  sqlite3 webp imagemagick libkakasi2-dev \
+  libvips-dev libjpeg62-turbo-dev libpng-dev
 
 # install optional tools
 apt install mcomix thunar xfce4-terminal
 
 # install ruby (you can use RBENV, RVM, or system package)
 curl -sSL https://get.rvm.io | bash -s stable
-rvm install "3.X.Y"  # you can use a version >= 3.0.0
+rvm install ruby-X.Y.Z  # you can use a version >= 3.0.0
 
 # clone repository
 git clone https://github.com/ryoga-chan/djmngr.git
